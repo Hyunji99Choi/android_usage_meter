@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='how_much_do_you_spend'

@@ -1,0 +1,34 @@
+﻿<Window x:Class="how_much_do_you_spend.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:how_much_do_you_spend"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" 
+        mc:Ignorable="d"
+        Title="사용량 측정기 관리 프로그램" Height="543.506" Width="943" ResizeMode="NoResize">
+    <Grid Margin="0,10,2,0">
+
+        <WindowsFormsHost Name="Chart" Foreground="{x:Null}" Background="#FF2B2B2B" Height="317" VerticalAlignment="Top" Margin="10,10,166,0"/>
+        <DatePicker Name="start"  HorizontalAlignment="Left" Margin="22,383,0,0" VerticalAlignment="Top" Width="134"/>
+        <DatePicker Name="end" HorizontalAlignment="Left" Margin="181,383,0,0" VerticalAlignment="Top" Width="134"/>
+        <ComboBox Name="category" HorizontalAlignment="Left" Margin="336,385,0,0" VerticalAlignment="Top" Width="170" DropDownClosed="AppComboBoxUpdate"/>
+        <ComboBox Name="application" HorizontalAlignment="Left" Margin="533,385,0,0" VerticalAlignment="Top" Width="170" DropDownClosed="CategoryComboBoxUpdate"/>
+        <ComboBox Name="people" HorizontalAlignment="Left" Margin="729,385,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Name="dateTypeSwitch_btn" Content="일별" HorizontalAlignment="Left" Margin="811,209,0,0" VerticalAlignment="Top" Width="90" Height="50" Click="MonthOrWeekOrDate"/>
+        <Button Name="chartlist_Btn" Content="차트 보기" HorizontalAlignment="Left" Margin="811,97,0,0" VerticalAlignment="Top" Width="90" Height="50" Click="ChartOrList"/>
+        <TextBlock Name="screenCount" HorizontalAlignment="Left" Margin="813,34,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="62" Width="91" TextAlignment="Center" FontSize="36"/>
+        <!--<ListBox Name="listbox" HorizontalAlignment="Left" Height="317" Margin="10,10,0,0" VerticalAlignment="Top" Width="614"/>-->
+        <Button Name="apply_Btn" Content="적용" HorizontalAlignment="Left" Margin="783,442,0,0" VerticalAlignment="Top" Width="116" Height="32" Click="dataApply"/>
+        <Label Content="카테고리" HorizontalAlignment="Left" Margin="336,354,0,0" VerticalAlignment="Top" Width="67"/>
+        <Label Content="어플리케이션" HorizontalAlignment="Left" Margin="533,354,0,0" VerticalAlignment="Top"/>
+        <Label Content="이름" HorizontalAlignment="Left" Margin="729,354,0,0" VerticalAlignment="Top"/>
+        <Label Content="켠 횟수" HorizontalAlignment="Left" Margin="834,8,0,0" VerticalAlignment="Top"/>
+        <Button Name="dataTypeSwitch_Btn" Content="사용 시간" Margin="811,266,0,0" VerticalAlignment="Top" Height="50" Click="dataTypeSwitch" HorizontalAlignment="Left" Width="90"/>
+        <Button Name= "intervalSwitch_Btn" Content="기간별" HorizontalAlignment="Left" Margin="811,153,0,0" VerticalAlignment="Top" Width="90" Height="50" Click="intervalSwitch"/>
+        <DataGrid Name ="dataGrid" HorizontalAlignment="Left" Height="317" Margin="10,10,0,0" VerticalAlignment="Top" Width="766"/>
+        <Label Content="시작날짜" HorizontalAlignment="Left" Margin="22,352,0,0" VerticalAlignment="Top" Width="67"/>
+        <Label Content="종료날짜" HorizontalAlignment="Left" Margin="181,352,0,0" VerticalAlignment="Top" Width="67"/>
+
+    </Grid>
+</Window>

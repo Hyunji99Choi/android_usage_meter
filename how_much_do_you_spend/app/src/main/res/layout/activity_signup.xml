@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="32dp"
+            android:background="@android:color/transparent"
+            android:focusableInTouchMode="true"
+            android:src="@drawable/back_button" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/phoneNumCreateMsgText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="20dp"
+            android:lineSpacingExtra="6sp"
+            android:textColor="#1f2021"
+            android:textSize="15sp"
+            android:visibility="invisible"
+            android:text="존재하는 전화번호입니다." />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:lineSpacingExtra="12sp"
+                android:textColor="#1f2021"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:text="회원가입" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="0sp"
+                android:textColor="#babdbf"
+                android:textSize="16sp"
+                android:text="전화번호" />
+
+            <EditText
+                android:id="@+id/phoneNumEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/textbox"
+                android:textSize="16sp"
+                android:hint="전화번호를 입력해주세요( - 생략)"
+                android:inputType="textNoSuggestions" />
+
+            <Button
+                android:id="@+id/phoneNumExistCheckButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/button_gray"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="0sp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="전화번호 중복 확인"/>
+
+            <TextView
+                android:id="@+id/pwdErrorMsgText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="0sp"
+                android:textColor="#ff0000"
+                android:textSize="12sp"
+                android:visibility="gone"
+                android:text="비밀번호가 일치하지 않습니다" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:lineSpacingExtra="0sp"
+                android:textColor="#babdbf"
+                android:textSize="16sp"
+                android:text="이름" />
+
+            <EditText
+                android:id="@+id/nameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/textbox"
+                android:textSize="16sp"
+                android:hint="이름을 입력해주세요"
+                android:inputType="textNoSuggestions" />
+
+            <Button
+                android:id="@+id/signUpButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/button_main_color"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                android:lineSpacingExtra="0sp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="회원가입"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
