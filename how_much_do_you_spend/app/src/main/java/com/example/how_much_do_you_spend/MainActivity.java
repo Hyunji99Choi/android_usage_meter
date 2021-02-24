@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     boolean granted = false;
 
+    //활동이 시작됨
     @Override
     public void onStart() {
         super.onStart();
@@ -81,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    //뒤로 가기 버튼을 눌렀을 때 처리 방법
     @Override
     public void onBackPressed() {
         long curTime = System.currentTimeMillis();
@@ -95,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Activity가 실행을 종료, 활동이 소멸되기 전에 호출
+    //사용자가 activity를 완전히 닫거나 finish() 호출 시
     @Override
     public void onDestroy() {
         Log.d("debug","onDestroy");
@@ -112,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    //활동이 일시중지됨 상태가 될때 호출
     @Override
     public void onPause() {
         super.onPause();
@@ -144,6 +150,8 @@ public class MainActivity extends AppCompatActivity {
         openText.setText(count + " 회");
     }
 
+    //활동생명주기 시작~포커스가 떠날때까지(전화, 다른 활동, 기기 화면 꺼짐 등)
+    //일시 중지됨에서 재개됨 (onPause(멈춤)->onResume(다시시작))
     @Override
     protected void onResume(){
         Log.d("debug", "onResume");
@@ -156,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
         setDisplayData(info.getCount(),info.getWifiUsage(),info.getMobileUsage(),info.getTime());
     }
 
+    //시스템 시작 시 한번 ** 기본 함수 **
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
