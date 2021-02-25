@@ -12,6 +12,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+// 통신 class
 public class RequestToServer extends AsyncTask<String, String, String> {
     String ip = "http://---.---.---.---:----/";
     @Override

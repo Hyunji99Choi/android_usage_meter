@@ -10,22 +10,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+// 초기화면, 대표화면, 로딩화면 class
 public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            Thread.sleep(2000);
+            Thread.sleep(2000); //(초기화면, 대표화면, 로딩화면) 대기 시간
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         Intent intent;
-        if(checkAutoLogin()){
+        if(checkAutoLogin()){ //자동 로그인 확인
             Log.d("debug","asdfd");
-            intent = new Intent(getApplicationContext(),MainActivity.class);
-        }else{
-            intent = new Intent(getApplicationContext(),LoginActivity.class);
+            intent = new Intent(getApplicationContext(),MainActivity.class); //메인 페이지
+        }else{ //자동 로그인 실패
+            intent = new Intent(getApplicationContext(),LoginActivity.class); //로그인 페이지
         }
         startActivity(intent);
         finish();
@@ -55,7 +56,7 @@ public class SplashActivity extends AppCompatActivity {
         JSONObject req_json = new JSONObject(); // req body json
         JSONObject responseMsg = null; // res message
 
-        try {
+        try { //json 형태 데이터 만들기
             req_json.put("name" ,name);
             req_json.put("phoneNum", phoneNum);
 
@@ -65,6 +66,7 @@ public class SplashActivity extends AppCompatActivity {
 
         if (req_json.length() > 0) {
             try {
+                //동기 통신
                 //reqToserver execute / params 0 = GET OR POST / 1 = call function / 2 = request json
                 res_obj = new JSONObject(reqToServer.execute("POST", "users/login",String.valueOf(req_json)).get());
             } catch (Exception e) {

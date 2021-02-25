@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+//로그인 페이지
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener  {
     TextView findIdPwdText; // 비밀번호 찾기 버튼
     EditText nameEdit; //
@@ -40,12 +41,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()){
-            case R.id.signUpButton:
+            case R.id.signUpButton: //회원가입 버튼
                 intent = new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivity(intent);
                 finish();
                 break;
-            case R.id.logInButton:
+            case R.id.logInButton: //로그인 버튼
                 // 로그인 성공시 true, 실패 false
                 String name = nameEdit.getText().toString();
                 String phoneNum = phoneNumEdit.getText().toString();
@@ -55,14 +56,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 try {
                     if(result.getBoolean("result")){
 
-                        saveLoginInfo(name, phoneNum);
+                        saveLoginInfo(name, phoneNum); //자동로그인 저장
 
                         //메인 엑티비티로 전환
                         intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
                     }else {
-                        loginFailError();
+                        loginFailError(); //로그인 실패 시 호출
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -70,6 +71,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
+    //자동 로그인 과 똑같은 함수 (SplashActivity 참고)
     public JSONObject logInCheck(String name, String phoneNum){
         JSONObject res_obj=null;
         RequestToServer reqToServer = new RequestToServer(); // 서버 요청 클래스
@@ -104,6 +106,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         anim.setRepeatCount(1); // 시작 전 시간 간격 milliseconds
         logInFailMessageText.startAnimation(anim); // 깜빡임 시작
     }
+    //자동 로그인 정보 저장
     void saveLoginInfo(String name, String phoneNum){
         SharedPreferences loginInfo = getSharedPreferences("loginInfo",MODE_PRIVATE);
         SharedPreferences.Editor editor = loginInfo.edit();

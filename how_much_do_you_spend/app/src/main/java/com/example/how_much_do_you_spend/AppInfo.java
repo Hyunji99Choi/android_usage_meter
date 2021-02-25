@@ -2,6 +2,7 @@ package com.example.how_much_do_you_spend;
 
 import android.net.TrafficStats;
 
+//싱글톤, 회원정보
 public class AppInfo {
     private long baseWifi;
     private long baseMobile;
@@ -31,7 +32,7 @@ public class AppInfo {
         time = 0;
     }
 
-    public static AppInfo getInstance(){
+    public static AppInfo getInstance(){ //싱글톤
         if(instance == null){
             instance = new AppInfo();
         }

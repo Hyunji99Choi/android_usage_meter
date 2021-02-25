@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+//회원가입 페이지
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener{
     ImageButton backButton; // 뒤로가기 버튼
     TextView phoneNumCreateMsgText; // 아이디 생성 가능 여부 메세지 텍스트뷰
@@ -52,7 +53,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     // 휴대폰 뒤로가기 버튼
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class); //로그인페이지 호출
         startActivity(intent);
         finish();
     }
@@ -62,16 +63,16 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()) {
-            case R.id.backButton:
+            case R.id.backButton: //뒤로 버튼 클릭
                 intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
                 break;
-            case R.id.phoneNumExistCheckButton:
+            case R.id.phoneNumExistCheckButton: // 전화번호 중복 확인 버튼
                 // ID 생성 가능한지 확인
                 checkID();
                 break;
-            case R.id.signUpButton:
+            case R.id.signUpButton: //회원가입 버튼 클릭
                 if(!checkID()){
                     nameEdit.requestFocus();
                     break;
@@ -79,7 +80,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 // 회원가입 가능하면 성공
                 if(requestSignUp()){
                     saveLoginInfo(nameEdit.getText().toString(), phoneNumEdit.getText().toString());
-                    intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent = new Intent(getApplicationContext(), MainActivity.class); //메인 페이지 진입
                     startActivity(intent);
                     finish();
                 } else {
@@ -91,12 +92,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     // 아이디 생성 가능한지 확인
     boolean checkID(){
-        if(11 != phoneNumEdit.getText().toString().length()){
+        if(11 != phoneNumEdit.getText().toString().length()){ //길이 체크
             showSuccessOrFailMsg(phoneNumCreateMsgText,unUsePhoneNumMsg,false);
             return false;
         }
 
-        if(!checkExistPhoneNum()){
+        if(!checkExistPhoneNum()){ //중복 체크
             showSuccessOrFailMsg(phoneNumCreateMsgText,existPhoneNumMsg,false);
             return false;
         }
