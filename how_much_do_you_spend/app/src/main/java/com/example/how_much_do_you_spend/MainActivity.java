@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private Intent serviceintent;
     private long backBtnTime = 0;
     TimeCheckHandler timeHandler = new TimeCheckHandler();
-    private ServiceThread timeThread;
+    private ServiceThread timeThread; //onCreate
 
 
     boolean granted = false;
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
     }
 
+    //내부 클래스
     class TimeCheckHandler extends Handler {
         @Override public void handleMessage(android.os.Message msg) {
             //Log.d("debug","time is going");
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //내부 클래스
     private LockScreenStateReceiver mLockScreenStateReceiver;
     class LockScreenStateReceiver extends BroadcastReceiver {
         @Override
@@ -169,10 +171,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         timeThread = new ServiceThread(timeHandler,1000);
-        timeThread.start();
+        timeThread.start(); //앱 실행시 Background Service 실행
         SharedPreferences dataInfo = getSharedPreferences("dataInfo",MODE_PRIVATE);
         if(!dataInfo.contains("info")){
-            createDataInfo();
+            createDataInfo(); //데이터가 없으면 만들기,,
         }
 
         Log.d("debug", "onCreate");
@@ -186,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
         showButton = (Button)findViewById(R.id.showButton);
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomNavigationView);
 
+        //Fragment 설정
         fragmentManager = getSupportFragmentManager();
 
         monthFragment = new MonthFragment();

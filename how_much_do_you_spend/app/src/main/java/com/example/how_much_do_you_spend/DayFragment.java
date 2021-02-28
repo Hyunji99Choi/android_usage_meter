@@ -20,6 +20,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
+//일별로 보기 프레그먼트
 public class DayFragment extends Fragment {
     TextView[] selectText;
     LinearLayout[] selectLayout;
@@ -122,7 +123,7 @@ public class DayFragment extends Fragment {
     // 오늘 날짜로 적용
     void initializeDate(){
         dayManager.option = "DAY";
-        dayManager.nowDay = dayManager.getToday();
+        dayManager.nowDay = dayManager.getToday(); //오늘 날짜 세팅
         settingNowDay();
     }
 

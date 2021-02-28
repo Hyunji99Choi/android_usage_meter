@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
-// 싱글톤 클래스
+// 싱글톤 클래스, 메니저 클래스(기능만 숙지 -> 원리 분석 못함)
 public class DayManager {
     public Date nowDay; // 현재 조회하고 있는 날짜
     public String option; // MONTH, WEEK, DAY
